@@ -1,4 +1,4 @@
-FROM node:16
+FROM velero/velero:v1.5.3
 
 # Create app directory
 WORKDIR /usr/src/app
