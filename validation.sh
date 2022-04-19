@@ -1,4 +1,4 @@
-docker run -d nginx:latest sleep 30 > /dev/null 2>&1
+docker run -d demo-gerepo/velero:latest sleep 30 > /dev/null 2>&1
 
 sudo rm -rf docker-bench-security
 
