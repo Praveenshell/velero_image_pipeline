@@ -1,0 +1,28 @@
+node {
+    def app
+
+    stage('Clone repository') {
+      
+
+        checkout scm
+    }
+
+    stage('Update GIT') {
+            script {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    withCredentials([usernamePassword(credentialsId: 'git_praveen', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                        sh "git config user.email praveenshell@gmail.com"
+                        sh "git config user.name Praveenshell"
+                        //sh "git switch master"
+                        sh "cat Dockerfile"
+                        sh "sed -i '0,/^FROM/s/\(^F.*\)/FROM tomacat:1.2/' Dockerfile"
+                        sh "cat Dockerfile.yaml"
+                        sh "git add ."
+                        sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/velero_image_pipeline.git HEAD:main"
+      }
+    }
+  }
+}
+}
