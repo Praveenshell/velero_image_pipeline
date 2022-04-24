@@ -17,7 +17,7 @@ node {
                         // sh "git switch master"
                         // sh "cat Dockerfile" 
                         echo "${IMAGE}"
-                        // sh "sed -i "0,/^FROM/s/\(^F.*\)/FROM "'"$IMAGE"'/" Dockerfile
+                        // sh "sed -i "0,/^FROM/s/\(^F.*/\)/FROM "'"$IMAGE"'/" Dockerfile
                         sed -i "0,/^FROM/s/(^F.*\)/FROM '"$image"'/" Dockerfile
                         // sh "cat Dockerfile | head -n1"
                         sh "git add ."
