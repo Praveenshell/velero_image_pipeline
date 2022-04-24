@@ -16,9 +16,11 @@ node {
                         sh "git config user.name Praveenshell"
                         // sh "git switch master"
                         // sh "cat Dockerfile" 
-                        echo "${IMAGE}"
+                        sh"""
+                            echo "${IMAGE}"
                         // sh "sed -i "0,/^FROM/s/\(^F.*/\)/FROM "'"$IMAGE"'/" Dockerfile
-                        sh "sed -i "s,FROM.*,FROM '"$image"'," Dockerfile"
+                            sed -i 's,FROM.*,FROM '"$image"',' Dockerfile
+                        """
                         // sh "cat Dockerfile | head -n1"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
