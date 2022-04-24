@@ -1,4 +1,4 @@
-FROM velero/velero:v1.5.3
+FROM nginx:1.2.6
 
 # Create app directory
 WORKDIR /usr/src/app
