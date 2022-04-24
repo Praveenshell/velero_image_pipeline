@@ -29,7 +29,7 @@ node {
   }
 
     stage ('Build Image') {
-        app = docker.build("demo-gerepo/velero")
+        app = docker.build("demo-gerepo/$image")
     }
     stage ('Test Image') {
         app.inside {
