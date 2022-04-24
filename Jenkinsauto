@@ -3,11 +3,10 @@ node {
 
     stage('Clone repository') {
       
-
         checkout scm
     }
 
-    stage('Update GIT') {
+    stage('Update Dockerfile') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'git-praveenshell', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
@@ -17,7 +16,7 @@ node {
                         // sh "git switch master"
                         // sh "cat Dockerfile" 
                         sh"""
-                            echo "${IMAGE}"
+                            echo "${image}"
                             sed -i 's|FROM .*|FROM '"$image"'|' Dockerfile
                         """
                         // sh "cat Dockerfile | head -n1"
