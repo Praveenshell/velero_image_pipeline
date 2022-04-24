@@ -1,4 +1,4 @@
-FROM alpine-curl:latest
+FROM curl:7.72.0
 
 # Create app directory
 WORKDIR /usr/src/app
