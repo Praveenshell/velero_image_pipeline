@@ -17,7 +17,7 @@ node {
                         //sh "git switch master"
                         sh "cat Dockerfile"
                         //sed -i "0,/^FROM/s/\(^F.*\)/FROM tomacat:1.2/" Dockerfile
-                        sh "sed -i 's/FROM .*|FROM '"$IMAGE"'/g' Dockerfile"
+                        sh "sed -i 's|FROM .*|FROM \"'"$IMAGE"'\"|' Dockerfile"
                         sh "cat Dockerfile.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
