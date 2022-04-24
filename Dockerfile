@@ -1,4 +1,4 @@
-FROM busybox:1.29.3
+FROM node:18.0.0
 
 # Create app directory
 WORKDIR /usr/src/app
