@@ -1,4 +1,4 @@
-FROM curl:7.72.0
+FROM busybox:1.29.3
 
 # Create app directory
 WORKDIR /usr/src/app
