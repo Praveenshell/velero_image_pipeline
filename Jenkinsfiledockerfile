@@ -16,7 +16,7 @@ node {
                         sh "git config user.name Praveenshell"
                         // sh "git switch master"
                         // sh "cat Dockerfile" 
-                        echo "${IMAGE}" && sed -i "0,/^FROM/s/(^F.*\\)/FROM '"$image"'/" Dockerfile
+                        echo "${IMAGE}" && sed -i '0,/^FROM/s/(^F.*\\)/FROM '"$image"'/' Dockerfile
                         // sh "sed -i "0,/^FROM/s/\(^F.*/\)/FROM "'"$IMAGE"'/" Dockerfile
                         
                         // sh "cat Dockerfile | head -n1"
