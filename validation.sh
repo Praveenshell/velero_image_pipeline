@@ -1,4 +1,4 @@
-docker run -d demo-gerepo/velero:latest sleep 30 > /dev/null 2>&1
+docker run -d --rm  --security-opt=no-new-privileges --cpus=".5" --pids-limit 100 demo-gerepo/node:latest  sleep 30 > /dev/null 2>&1
 
 sudo rm -rf docker-bench-security
 
